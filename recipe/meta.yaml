@@ -44,7 +44,7 @@ test:
 about:
   home: http://www.freetds.org/
   license: GPL-2
-  license_file: COPYING
+  license_file: LICENSE
   summary: FreeTDS is a free implementation of Sybase's DB-Library, CT-Library, and ODBC libraries
   license_family: GPL2
   doc_url: http://www.freetds.org/docs.html
