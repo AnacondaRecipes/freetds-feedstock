@@ -13,7 +13,7 @@ set -e
   --with-krb5=$PREFIX \
   --host=$HOST \
   --build=$BUILD
-make
+make -j${CPU_COUNT}
 # To run this check we need to have access to a mssql instance.
 # make check
 make install
