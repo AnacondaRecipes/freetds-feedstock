@@ -7,7 +7,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: freetds-{{ version }}.tar.gz
   url: https://www.freetds.org/files/stable/{{ name }}-{{ version }}.tar.bz2
   sha256: {{ sha256 }}
 
