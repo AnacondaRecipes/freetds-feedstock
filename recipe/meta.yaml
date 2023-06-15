@@ -1,14 +1,13 @@
 {% set name = 'freetds' %}
-{% set version = "1.3.3" %}
-{% set sha256 = "dba02e7f0661ff42dc289fc41d7cde7e03089fd326f08ee28c872ac9ff4a1c84" %}
+{% set version = "1.3.18" %}
+{% set sha256 = "1d8561d57c71991a28f4681343785c23a6a3eb54d5bcd23897d07e3825ff2d56" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: freetds-{{ version }}.tar.gz
-  url: http://www.freetds.org/files/stable/{{ name }}-{{ version }}.tar.bz2
+  url: https://www.freetds.org/files/stable/{{ name }}-{{ version }}.tar.bz2
   sha256: {{ sha256 }}
 
 build:
@@ -21,18 +20,19 @@ requirements:
   build:
     - {{ compiler('c') }}
     - libtool  # [not win]
-  host:
-    - openssl
-    - unixodbc  # [unix]
-    - krb5      # [unix]
-    - readline  # [not win]
     - make   # [not win]
     - cmake  # [win]
     - jom  # [win]
-    - libiconv  # [osx]
     - perl  # [win]
+  host:
+    - openssl {{ openssl }}
+    - unixodbc 2.3.11  # [unix]
+    - krb5 1.20.1  # [unix]
+    - readline 8.2  # [not win]
+    - libiconv 1.16  # [osx]
   run:
     - krb5     # [unix]
+    - openssl 3.*
     # Should be taken care of by run_exports
     # - unixodbc  # [unix]
     # - readline  # [not win]
@@ -47,13 +47,14 @@ test:
     - conda inspect objects freetds  # [osx]
 
 about:
-  home: http://www.freetds.org/
-  license: LGPL-2.0 AND GPL-2.0
-  license_file: 
+  home: https://www.freetds.org/
+  license: LGPL-2.0
+  license_file:
     - COPYING_LIB.txt
   summary: FreeTDS is a free implementation of Sybase's DB-Library, CT-Library, and ODBC libraries
+  description: FreeTDS is a free implementation of Sybase's DB-Library, CT-Library, and ODBC libraries
   license_family: LGPL
-  doc_url: http://www.freetds.org/docs.html
+  doc_url: https://www.freetds.org/docs.html
   dev_url: https://github.com/FreeTDS/freetds
 
 extra:
