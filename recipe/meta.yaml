@@ -32,7 +32,7 @@ requirements:
     - libiconv 1.16  # [osx]
   run:
     - krb5     # [unix]
-    - openssl 3.*
+    - openssl # exact pin handled through openssl run_exports
     # Should be taken care of by run_exports
     # - unixodbc  # [unix]
     # - readline  # [not win]
