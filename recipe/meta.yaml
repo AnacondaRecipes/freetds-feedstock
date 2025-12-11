@@ -1,6 +1,5 @@
 {% set name = "freetds" %}
-{% set version = "1.3.18" %}
-{% set sha256 = "1d8561d57c71991a28f4681343785c23a6a3eb54d5bcd23897d07e3825ff2d56" %}
+{% set version = "1.5.10" %}
 
 package:
   name: {{ name }}
@@ -8,10 +7,10 @@ package:
 
 source:
   url: https://www.freetds.org/files/stable/{{ name }}-{{ version }}.tar.bz2
-  sha256: {{ sha256 }}
+  sha256: b5aa4377a669b266ff26f2d11893e65430bef377eefd92934832310774dc6942
 
 build:
-  number: 1
+  number: 0
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/freetds/
     - {{ pin_subpackage('freetds') }}
@@ -48,7 +47,7 @@ test:
     - conda inspect objects freetds   # [osx]
 
 about:
-  home: https://www.freetds.org/
+  home: https://www.freetds.org
   license: LGPL-2.0
   license_file:
     - COPYING_LIB.txt
