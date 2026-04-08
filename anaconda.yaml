@@ -2,4 +2,4 @@ anaconda_config_version: 1
 upstream_sources:
   - webpage:
       url: http://www.freetds.org/files/stable/
-      regex: freetds-(.*)\.tar\.gz
+      regex: freetds-([\d.]+)\.tar\.gz
