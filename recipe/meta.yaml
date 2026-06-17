@@ -1,5 +1,5 @@
 {% set name = "freetds" %}
-{% set version = "1.5.10" %}
+{% set version = "1.5.18" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://www.freetds.org/files/stable/{{ name }}-{{ version }}.tar.bz2
-  sha256: b5aa4377a669b266ff26f2d11893e65430bef377eefd92934832310774dc6942
+  sha256: 6b2c8b93b9ee7c83855daf745de5878790032f14dbaee553d83a9d211b84dd4b
 
 build:
-  number: 1
+  number: 0
   run_exports:
     # Full backward compatibility so far:
     # https://abi-laboratory.pro/tracker/timeline/freetds/
@@ -38,7 +38,7 @@ requirements:
 test:
   requires:
     # To use 'conda inspect', install conda-build
-    - conda-build  # [osx]
+    - conda-build  # [linux or osx]
   commands:
     - tsql -C
     - conda inspect linkages freetds  # [linux or osx]
