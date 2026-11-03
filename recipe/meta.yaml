@@ -1,5 +1,5 @@
 {% set name = "freetds" %}
-{% set version = "1.5.18" %}
+{% set version = "1.5.20" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://www.freetds.org/files/stable/{{ name }}-{{ version }}.tar.bz2
-  sha256: 6b2c8b93b9ee7c83855daf745de5878790032f14dbaee553d83a9d211b84dd4b
+  sha256: 399a8680f77164ff06bec57aeefdff4bb160406e509cd7cc304743d27eafbb23
 
 build:
   number: 0
@@ -20,14 +20,14 @@ requirements:
   build:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - cmake    # [win]
-    - jom      # [win]
+    - cmake  # [win]
+    - jom  # [win]
     - libtool  # [not win]
-    - make     # [not win]
-    - perl     # [win]
+    - make  # [not win]
+    - perl  # [win]
   host:
     - libiconv {{ libiconv }}  # [osx]
-    - libkrb5 {{ krb5 }}       # [unix]
+    - libkrb5 {{ krb5 }}  # [unix]
     - openssl {{ openssl }}
     - readline {{ readline }}  # [not win]
     - unixodbc {{ unixodbc }}  # [unix]
@@ -42,7 +42,7 @@ test:
   commands:
     - tsql -C
     - conda inspect linkages freetds  # [linux or osx]
-    - conda inspect objects freetds   # [osx]
+    - conda inspect objects freetds  # [osx]
 
 about:
   home: https://www.freetds.org
